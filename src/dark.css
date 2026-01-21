@@ -1,0 +1,11 @@
+@media (prefers-color-scheme: dark) {
+  .t_lg_d {
+    --base-text: white;
+    --main-color: color-mix(in srgb, var(--theme-color) 80%, white);
+    --main-text-color: color-mix(
+      in srgb,
+      white 80%,
+      var(--main-color)
+    );
+  }
+}

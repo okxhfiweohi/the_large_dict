@@ -1,0 +1,9 @@
+.t_lg_d {
+  border: #0088ff44 solid 1px;
+}
+
+.less-children {
+  & :nth-child(n+4) {
+    display: none;
+  }
+}

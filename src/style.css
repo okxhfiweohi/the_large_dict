@@ -1,0 +1,435 @@
+.t_lg_d {
+  u, i, ul, ol {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  u, i {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+    font-style: normal;
+  }
+  ul, ol {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+  }
+}
+
+.t_lg_d {
+  --theme-color: #1a8cff;
+  --transparent-white: color-mix(in srgb, white 5%, transparent);
+  --base-text: black;
+  --main-color: var(--theme-color);
+  --main-text-color: color-mix(
+    in srgb,
+    black 75%,
+    var(--main-color)
+  );
+  color: var(--main-text-color);
+  position: relative;
+
+  .tags {
+    &.theme u[d-t] {
+      --tag-color: var(--main-color);
+    }
+    &.plain u[d-t] {
+      --tag-color: var(--main-text-color);
+      background: var(--transparent-white);
+      box-shadow: 0 0 0;
+      border: solid 1px;
+      box-sizing: border-box;
+    }
+    u[d-t="ps"] {
+      --tag-color: deeppink;
+    }
+    u[d-t="ms"] {
+      --tag-color: red;
+    }
+    u[d-t="hs"] {
+      --tag-color: orangered;
+    }
+    u[d-t="t4"] {
+      --tag-color: seagreen;
+    }
+    u[d-t="t6"] {
+      --tag-color: green;
+    }
+    u[d-t="t8"] {
+      --tag-color: darkgreen;
+    }
+    u[d-t="pe"] {
+      --tag-color: teal;
+    }
+    u[d-t="gre"] {
+      --tag-color: darkcyan;
+    }
+    u[d-t="tf"] {
+      --tag-color: blue;
+    }
+    u[d-t="other"] {
+      --tag-color: dodgerblue;
+    }
+  }
+}
+
+.t_lg_d {
+  margin: 0.5em 0;
+  .hidden {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.t_lg_d header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3em;
+  margin: 0 0 0.5em;
+  font-family: serif;
+
+  /* word */
+  b {
+    font-size: 1.4em;
+    font-weight: bold;
+    font-family: "Times New Roman", Georgia, Cambria, Cochin, Times, serif;
+    color: color-mix(in srgb, var(--base-text) 5%, var(--main-color));
+    text-shadow: 0 0 0.01em var(--base-text);
+  }
+  & > *:not(b) {
+    opacity: 70%;
+  }
+
+  /* phonetic */
+  i {
+    background-color: #88888833;
+    border: #88888844 0.05em solid;
+    padding: 0.2em 0.5em;
+    border-radius: 0.4em;
+    font-family:
+      "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Geneva, Arial,
+      Verdana, sans-serif;
+    &::before, &::after {
+      content: "/";
+    }
+    font-size: 0.7em;
+  }
+  u {
+    &[d-cls="5"] {
+      --stars: 5;
+    }
+    &[d-cls="4"] {
+      --stars: 4;
+    }
+    &[d-cls="3"] {
+      --stars: 3;
+    }
+    &[d-cls="2"] {
+      --stars: 2;
+    }
+    &[d-cls="1"] {
+      --stars: 1;
+    }
+    &[d-cls="0"] {
+      --stars: 0;
+    }
+    &[d-cls] {
+      margin-right: auto;
+      color: transparent;
+      user-select: none;
+
+      display: inline-block;
+      position: relative;
+      --size: min(1em, 42px);
+      --width: calc(var(--size) * 5);
+      width: var(--width);
+      height: var(--size);
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        mask: url("svg/star.svg") repeat-x;
+        mask-size: var(--size) var(--size);
+      }
+      &::before {
+        width: calc(var(--size) * 5);
+        background-color: #8888;
+      }
+
+      &::after {
+        background-color: var(--main-color);
+        width: calc(var(--stars) * var(--size));
+      }
+    }
+
+    &:has(q) {
+      margin-left: 0.1em;
+      font-size: 0.8em;
+      font-weight: lighter;
+      q {
+        font-size: 1.125em;
+        &::before {
+          content: ":";
+          font-size: 0.8em;
+          padding-right: 0.2em;
+        }
+      }
+    }
+  }
+}
+
+.t_lg_d .info {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8em;
+  gap: 0.3em;
+  margin-bottom: 0.8em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  opacity: 70%;
+
+  .exchange {
+    margin-right: auto;
+    u {
+      &:not(.hidden) + &:not(.hidden)::before {
+        content: ",";
+        padding-right: 0.3em;
+        margin-left: -0.25em;
+      }
+    }
+  }
+
+  .tags {
+    --tag-color: green;
+    u {
+      padding: 0.1em 0.3em;
+      margin-inline: 0.1em;
+      background-color: color-mix(
+        in srgb,
+        var(--tag-color) 15%,
+        var(--transparent-white)
+      );
+      color: var(--tag-color);
+      color: color-mix(in srgb, var(--tag-color) 85%, var(--base-text));
+      box-shadow: 0 0 0.15em
+        color-mix(in srgb, var(--tag-color) 20%, var(--transparent-white))
+        inset;
+      border-radius: 0.25em;
+    }
+  }
+}
+
+.t_lg_d .content {
+  display: flex;
+  gap: min(0.5em, 10px);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "LXGW WenKai GB", Verdana, Arial, sans-serif;
+
+  .main {
+    min-width: 60%;
+    flex-basis: 0;
+    flex-grow: 9999;
+  }
+
+  .side {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.t_lg_d .content .main .percent {
+  opacity: 70%;
+  display: inline-block;
+  &.hidden {
+    display: none;
+  }
+  background-color: color-mix(
+    in srgb,
+    var(--main-color) 8%,
+    var(--transparent-white)
+  );
+  box-shadow: 0 0 0.5em
+    color-mix(in srgb, var(--main-color) 15%, var(--transparent-white)) inset;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 0.5em;
+  text-align: justify;
+
+  &:empty {
+    display: none;
+  }
+
+  ul {
+    margin-right: 0.3em;
+    white-space: normal;
+    word-break: break-word;
+    text-wrap: pretty;
+    display: inline;
+    &.hidden {
+      display: none;
+    }
+    li {
+      --v: 0;
+      --font-size-add: calc(var(--v) * 0.15em / 100);
+      display: inline;
+      &.hidden {
+        display: none;
+      }
+
+      /* 百分比 */
+      i {
+        display: inline;
+        font-family: "LXGW WenKai GB", "Times New Roman", Times, serif;
+        font-size: 0.80em;
+        font-size: calc(0.80em + var(--font-size-add));
+        color: color-mix(in srgb, var(--base-text) 50%, var(--main-color));
+        padding-left: 0.1em;
+        font-style: italic;
+        &::before {
+          /* 不换行空格 */
+          /* 不单独换行，必须前面紧邻文本 */
+          content: "\00A0";
+          font-size: 0;
+        }
+        &::after {
+          content: "%";
+          font-size: 0.85em;
+        }
+      }
+    }
+  }
+  ul.sense {
+    li:not(:last-child) {
+      margin-right: 0.3em;
+    }
+  }
+
+  ul.pos {
+    li {
+      display: inline-flex;
+      align-items: flex-start;
+      padding: 0;
+      &[d-p="A"]::before {
+        content: "物主代词";
+      }
+      &[d-p="C"]::before {
+        content: "连词";
+      }
+      &[d-p="D"]::before {
+        content: "限定词";
+      }
+      &[d-p="E"]::before {
+        content: "存在句型";
+      }
+      &[d-p="I"]::before {
+        content: "介词";
+      }
+      &[d-p="J"]::before {
+        content: "形容词";
+      }
+      &[d-p="M"]::before {
+        content: "数词";
+      }
+      &[d-p="N"]::before {
+        content: "名词";
+      }
+      &[d-p="P"]::before {
+        content: "代词";
+      }
+      &[d-p="R"]::before {
+        content: "副词";
+      }
+      &[d-p="T"]::before {
+        content: "不定式";
+      }
+      &[d-p="U"]::before {
+        content: "感叹词";
+      }
+      &[d-p="V"]::before {
+        content: "动词";
+      }
+      &[d-p="X"]::before {
+        content: "否定词";
+      }
+      &[d-p]::before {
+        color: color-mix(in srgb, var(--base-text) 40%, var(--main-color));
+      }
+
+      u {
+        font-size: 0;
+        color: transparent;
+      }
+
+      /* 百分比统计条 */
+      i {
+        font-size: 0.9em;
+        padding-left: 0.1em;
+        padding-right: min(1em, calc(var(--v) * 1em / 100));
+        position: relative;
+        &::before {
+          bottom: 0;
+          left: 3px;
+          position: absolute;
+          width: max(5px, calc(var(--v) / 100 * 100% - 5px));
+          display: inline-block;
+          border-bottom: 1.5px solid;
+        }
+      }
+    }
+  }
+}
+
+.t_lg_d .content .main .explain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em;
+
+  &.hidden {
+    display: none;
+  }
+
+  li {
+    display: contents;
+    i {
+      text-align: right;
+      font-style: italic;
+      font-family: Cambria, Cochin, Georgia, "Times New Roman", Times, serif;
+      color: color-mix(in srgb, var(--base-text) 20%, var(--main-color));
+    }
+  }
+}
+
+.t_lg_d > div.float-footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  & > span.config-btn {
+    /* display: inline-block; */
+    --size: 1em;
+    height: var(--size);
+    width: var(--size);
+    margin: 0.25em;
+    background-color: gray;
+    mask: url("svg/settings.svg");
+    mask-size: var(--size) var(--size);
+    opacity: 30%;
+    &:hover {
+      opacity: 60%;
+    }
+  }
+}

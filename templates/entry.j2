@@ -1,0 +1,80 @@
+<div class="t_lg_d">
+  <header>
+    <b>{{ title }}</b>
+    {% if phonetic %}
+      {# #}
+      <i>{{ phonetic }}</i>
+    {% endif %}
+    {% if cls_star_rate is defined %}
+      {# #}
+      <u d-cls="{{ cls_star_rate }}">*{{ cls_star_rate }}</u>
+    {% endif %}
+    {% if frq is defined %}
+      {# #}
+      <u class="frq">F<q>{{ frq }}</q></u>
+    {% endif %}
+    {% if bnc is defined %}
+      {# #}
+      <u class="bnc">B<q>{{ bnc }}</q></u>
+    {% endif %}
+  </header>
+  {% if exchanges or tags %}
+    <div class="info">
+      {% if exchanges %}
+        <div class="exchange">
+          {% for item in exchanges %}
+            {# #}
+            <u d-e="{{ item.f }}">{{ item.v }}</u>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if tags %}
+        <div class="tags">
+          {% for tag in tags %}
+            {# #}
+            <u d-t="{{ tag.abbr }}">{{ tag.v }}</u>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="content">
+    <div class="main">
+      {% if percent and (percent.pos or percent.sense) %}
+        <div class="percent">
+          {% if percent.pos %}
+            <ul class="pos">
+              {% for item in percent.pos %}
+                <li d-p="{{ item.pos }}" style="--v: {{ item.percent }}">
+                  <u>{{ item.pos }}</u><i>{{ item.percent }}</i>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if percent.sense %}
+            <ul class="sense">
+              {% for item in percent.sense %}
+                <li>
+                  {{ item.v }}<i>{{ item.percent }}</i>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+      {% if explain %}
+        <ul class="explain">
+          {% for item in explain %}
+            <li>
+              <i>{{ item.pos }}</i> {{ item.v }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+  {% if json_data %}
+    {#  #}
+    <script class="json data" type="application/json">{{json_data}}</script>
+  {% endif %}
+</div>

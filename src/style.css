@@ -321,7 +321,7 @@
       align-items: flex-start;
       padding: 0;
       &[d-p="A"]::before {
-        content: "物主代词";
+        content: "冠词";
       }
       &[d-p="C"]::before {
         content: "连词";

@@ -1,5 +1,5 @@
 import { get_config } from "../config";
-import { get_data } from "../data";
+import { get_data } from "../utils/mini_query.ts";
 import { qq } from "../utils/mini_query";
 
 const key_selectors = {

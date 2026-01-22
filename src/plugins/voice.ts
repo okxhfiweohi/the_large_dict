@@ -3,8 +3,7 @@
  */
 
 import { get_config } from "../config";
-import { get_data } from "../data";
-import { qq } from "../utils/mini_query";
+import { qq, get_data } from "../utils/mini_query";
 
 const plugin: PluginType = {
   title: "音标语音",

@@ -3,8 +3,7 @@
  */
 import type { Sweeper } from "../component/Sweeper.ts";
 import { get_config } from "../config";
-import { get_data } from "../data.ts";
-import { qq } from "../utils/mini_query.ts";
+import { get_data, qq } from "../utils/mini_query.ts";
 import { show_imgs } from "../utils/show_imgs.ts";
 
 const plugin: PluginType = {

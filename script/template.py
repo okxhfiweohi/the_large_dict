@@ -59,6 +59,9 @@ class Template:
             self.template = env.from_string(s)
 
     def render(self, data: EntryData) -> str:
-        if "json_data" in data:
-            data["json_data"] = json.dumps(data.get("json_data", {}))
+        json_data = data.get("json_data", {})
+        if len(json_data):
+            data["json_data"] = json.dumps(json_data)
+        elif "json_data" in data:
+            del data["json_data"]
         return self.template.render(data)

@@ -71,5 +71,13 @@ export function hide_element() {
         hide("t");
       }
     }
+    if (
+      Array.from(exchanges_el.childNodes).every((node) => {
+        if (!(node instanceof Element)) return true;
+        return node.classList.contains("hidden");
+      })
+    ) {
+      exchanges_el.classList.add("hidden");
+    }
   }
 }

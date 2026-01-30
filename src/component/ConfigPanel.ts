@@ -19,6 +19,7 @@ export class ConfigPanel extends LitElement {
     p {
       margin: 0 0 1em;
       opacity: 70%;
+      font-size: 0.85em;
     }
     h3:not(:first-of-type) {
       margin-top: 2em;

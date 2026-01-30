@@ -43,6 +43,7 @@ export class ModalBox extends LitElement {
       font-size: 1.25rem;
       font-weight: 600;
       margin: 0;
+      overflow: auto;
     }
 
     .close-button {
@@ -57,6 +58,8 @@ export class ModalBox extends LitElement {
       cursor: pointer;
       font-size: 1.5rem;
       transition: all 0.2s ease;
+      flex-shrink: 0;
+      user-select: none;
     }
 
     .close-button:hover {
@@ -162,4 +165,3 @@ export class ModalBox extends LitElement {
     `;
   }
 }
-

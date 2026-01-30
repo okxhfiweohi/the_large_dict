@@ -31,9 +31,15 @@ export function prepare_structure() {
     const sweeper = new Sweeper();
     side.append(sweeper);
   }
-  if (!qq("footer")) {
-    const footer = document.createElement("footer");
+  let footer = qq("footer");
+  if (!footer) {
+    footer = document.createElement("footer");
     root_el.append(footer);
+  }
+  if (qq("footer .actions")) {
+    const actions = document.createElement("div");
+    actions.classList.add("actions");
+    footer.append(actions);
   }
   if (!qq(".float-footer")) {
     const float_footer = document.createElement("div");

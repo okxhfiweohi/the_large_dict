@@ -1,4 +1,3 @@
-import "../component/sober.js";
 import { root_el } from "./mini_query";
 import "../component/sober.js";
 export function show_error(

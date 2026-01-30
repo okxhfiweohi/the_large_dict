@@ -1,6 +1,6 @@
 import { html, render } from "lit";
 import { ConfigPanel } from "./component/ConfigPanel";
-import "sober/button";
+import "./component/sober.js";
 const dev_root = document.getElementById("the_large_dict_test_preview_root_");
 
 function toggle_all_tags() {

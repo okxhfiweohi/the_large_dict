@@ -10,18 +10,5 @@ export function show_error(
   el.setAttribute("type", type);
   el.innerText = s;
   root_el.append(el);
-  switch (type) {
-    case "info":
-      console.info(s);
-      break;
-    case "warning":
-      console.warn(s);
-      break;
-    case "error":
-      console.error(s);
-      break;
-    default:
-      console.log(s);
-      break;
-  }
+  ((console as any)[type === "warning" ? "warn" : type] ?? console.log)(s);
 }

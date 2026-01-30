@@ -4,7 +4,10 @@
 
 import { get_config } from "../config";
 import { get_data, qq } from "../utils/mini_query";
+import close_svg from "../svg/close.svg";
+import spellcheck_svg from "../svg/spellcheck.svg";
 import "../component/sober.js";
+import { IconImg } from "../component/Icon.js";
 
 const plugin: PluginType = {
   title: "打字记忆",
@@ -25,17 +28,15 @@ const plugin: PluginType = {
       el.style.width = "auto";
       el.style.margin = "0.5em";
       el.label = "请输入单词 (打字记忆)";
-      const icon = document.createElement("s-icon");
+      const icon = new IconImg(spellcheck_svg);
       icon.slot = "start";
-      icon.innerHTML =
-        `<svg viewBox="0 -960 960 960"><path d="M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"></path></svg>`;
+      icon.style.marginLeft = "12px";
+      icon.style.opacity = "70%";
 
       const clear_btn = document.createElement("s-icon-button");
       clear_btn.style.visibility = "hidden";
       clear_btn.slot = "end";
-      const clear_icon = document.createElement("s-icon");
-      clear_icon.name = "close";
-      clear_btn.append(clear_icon);
+      clear_btn.append(new IconImg(close_svg));
       clear_btn.onclick = () => {
         el.value = "";
         el.error = false;

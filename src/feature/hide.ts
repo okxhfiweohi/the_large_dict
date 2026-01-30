@@ -32,7 +32,9 @@ export function hide_element() {
   }
 
   // hide normal exchanges
-  const exchanges_el = qq(".info .exchange");
+  const exchanges_el = !get_config("hide_exchange")
+    ? qq(".info .exchange")
+    : null;
   if (exchanges_el && get_config("hide_normal_exchange")) {
     const { word, exchanges } = get_data();
     const hide = (f: string) =>

@@ -112,6 +112,20 @@ export class ConfigPanel extends LitElement {
       <div>
         <h3>主题</h3>
         <h4>
+          字体缩放
+          <s-slider
+            style="width:50%"
+            labeled="true"
+            @change="${this
+              .handle_change}"
+            data-ck="font_size_factor"
+            value="${get_config("font_size_factor") ?? 1}"
+            step="0.05"
+            min="0.5"
+            max="2"
+          ></s-slider>
+        </h4>
+        <h4>
           主题颜色
           <label>
             <input

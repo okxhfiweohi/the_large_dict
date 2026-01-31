@@ -36,7 +36,7 @@ export class IconImg extends LitElement {
       return nothing;
     }
     return html`
-      <img src="${this.src}" />
+      <img src="${this.src}" alt="icon" />
     `;
   }
 }

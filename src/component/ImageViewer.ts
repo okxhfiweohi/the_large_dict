@@ -137,6 +137,7 @@ export class ImageViewer extends LitElement {
       align-items: center;
       gap: 1rem;
       flex-shrink: 0;
+      color: var(--text-color);
     }
 
     .control-btn {
@@ -163,8 +164,7 @@ export class ImageViewer extends LitElement {
     }
 
     .zoom-level {
-      color: var(--text-color);
-      min-width: 5rem;
+      min-width: 4rem;
       text-align: center;
     }
 
@@ -703,8 +703,6 @@ export class ImageViewer extends LitElement {
             ${currentImage.alt}
           </div>
           <div class="header-right">
-            <div class="counter">${this.currentIndex + 1} / ${this.images
-              .length}</div>
             <button class="close-btn" @click="${this.close}" aria-label="关闭">
               ${ImageViewer.icons.close}
             </button>
@@ -757,6 +755,8 @@ export class ImageViewer extends LitElement {
         <div class="description">${currentImage.description || ""}</div>
 
         <div class="controls">
+          <div class="counter">${this.currentIndex + 1} / ${this.images
+            .length}</div>
           <button
             class="control-btn"
             @click="${this.zoomOut}"

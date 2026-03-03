@@ -15,7 +15,7 @@ const plugin: PluginType = {
     if (!config) {
       return;
     }
-    if (!((window as any).eruda)) {
+    if (!!((window as any).eruda)) {
       show_msg({
         type:"info",
         text: "控制台已加载！"
